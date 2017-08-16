@@ -3,6 +3,7 @@ package org.proxibanque.dao;
 import java.util.List;
 
 import org.proxibanque.model.Client;
+import org.proxibanque.model.Compte;
 
 public interface IDao {
 	
@@ -15,6 +16,8 @@ public interface IDao {
 	void updateClient(Client theClient) throws Exception;
 
 	void deleteClient(int id) throws Exception;
+	
+	List<Compte> getComptes() throws Exception;
 }
 
 

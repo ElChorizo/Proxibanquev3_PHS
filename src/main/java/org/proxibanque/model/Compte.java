@@ -1,6 +1,7 @@
 package org.proxibanque.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,27 +11,36 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn (name="TypeCompte")
 public class Compte {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int numeroCompte;
-	private double solde = 0;
-	
+	private double solde;
+
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JoinColumn(name="id")
+	@JoinColumn(name="clientId")
 	private Client client;
 	
 	public Compte() {
 		
 	}
 
-	public Compte(int numeroCompte, double solde) {
+	public Compte(double solde, Client client) {
 		super();
-		this.numeroCompte = numeroCompte;
 		this.solde = solde;
+		this.client = client;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public int getNumeroCompte() {

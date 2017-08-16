@@ -4,24 +4,28 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
 	<persistence-unit name="my-pu" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+	
 		<properties>
-		<!-- Database connection settings -->
+
+			<!-- Database connection settings -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/Proxibanquev3_PHS?createDatabaseIfNotExist=true" />
+				value="jdbc:mysql://localhost:3306/Proxibanquev3PHS?createDatabaseIfNotExist=true" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 
 			<!-- SQL dialect -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			
+
 			<!-- Create/update tables automatically using mapping metadata -->
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 
 			<!-- Pretty print the SQL in the log file and console -->
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="true" />
+			
+			
 
 		</properties>
 

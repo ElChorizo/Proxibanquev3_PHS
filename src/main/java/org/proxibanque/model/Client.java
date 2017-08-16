@@ -11,45 +11,66 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+
 @Entity
 @ManagedBean
 public class Client {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int clientId;
 	private String nom;
 	private String prenom;
 	private String adresse;
 	private String codePostal;
 	private String ville;
-	private String telephone;
+	private String email;
 	
-	@OneToMany (mappedBy = "client", cascade= {CascadeType.PERSIST})
+	
+	private String telephone;
+
+//	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
 	private List<Compte> comptes = new ArrayList<>();
 
 	public Client() {
 
 	}
 
-	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville,
-			String telephone) {
+	public Client(int clientId, String nom, String prenom, String adresse, String codePostal, String ville,
+			String email, String telephone, List<Compte> comptes) {
 		super();
-		this.id = id;
+		this.clientId = clientId;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
+		this.email = email;
 		this.telephone = telephone;
+		this.comptes = comptes;
 	}
 
-	public int getId() {
-		return id;
+	public void addCompte (Compte compte) {
+		comptes.add(compte);
+		compte.setClient(this);
+		
+	}
+	
+	public List<Compte> getComptes() {
+		return comptes;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
+	}
+
+	public int getclientId() {
+		return clientId;
+	}
+
+	public void setclientId(int clientId) {
+		this.clientId = clientId;
 	}
 
 	public String getNom() {
@@ -98,6 +119,14 @@ public class Client {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public String getemail() {
+		return email;
+	}
+
+	public void setemail(String email) {
+		this.email = email;
 	}
 
 }
