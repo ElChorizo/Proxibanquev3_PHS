@@ -17,7 +17,7 @@
 <body>
 	<h:form id="listClient">
 		<p:growl id="messages" showDetail="true" />
-		<p:dataTable var="client" value="#{proxiController.loadClients}"
+		<p:dataTable var="client" value="#{proxiController.clients}"
 			reflow="true" rows="5" paginator="true" rowKey="#{client.nom}"
 			selection="#{proxiController.selectedClient}" selectionMode="single">
 			<p:column headerText="Prénom" sortBy="#{client.prenom}">

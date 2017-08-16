@@ -29,13 +29,13 @@ public class ProxiController implements Serializable {
 	@Inject
 	private IService services;
 
-	@ManagedProperty("#{clientService}")
-	private ClientService service;
+//	@ManagedProperty("#{clientService}")
+//	private ClientService service;
 
-	@PostConstruct
-	public void init() {
-		clients = service.createClients(10);
-	}
+//	@PostConstruct
+//	public void init() {
+//		clients = service.createClients(10);
+//	}
 
 	public List<Client> getClients() {
 		return clients;
@@ -52,7 +52,7 @@ public class ProxiController implements Serializable {
 
 	}
 
-	public String addcLIent(Client theClient) {
+	public String addClient(Client theClient) {
 
 		try {
 
@@ -132,15 +132,15 @@ public class ProxiController implements Serializable {
 	public void setSelectedClient(Client selectedClient) {
 		this.selectedClient = selectedClient;
 	}
-
-	public void setService(ClientService service) {
-		this.service = service;
-	}
-
-	public void delete() {
-		clients.remove(selectedClient);
-		selectedClient = null;
-	}
+//
+//	public void setService(ClientService service) {
+//		this.service = service;
+//	}
+//
+//	public void delete() {
+//		clients.remove(selectedClient);
+//		selectedClient = null;
+//	}
 
 	public void onRowEdit(RowEditEvent event) {
 		FacesMessage msg = new FacesMessage("Client Edited", ((Client) event.getObject()).getNom());
