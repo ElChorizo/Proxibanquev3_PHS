@@ -1,8 +1,11 @@
 package org.proxibanque.model;
 
-public class CompteEpargne {
+import javax.persistence.Entity;
 
-	private double tauxRemuneration;
+@Entity
+public class CompteEpargne extends Compte{
+
+	private double tauxRemuneration = 1.03;
 
 	public double getTauxRemuneration() {
 		return tauxRemuneration;

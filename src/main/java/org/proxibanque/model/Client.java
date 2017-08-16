@@ -1,7 +1,22 @@
 package org.proxibanque.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+@ManagedBean
 public class Client {
 
+	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int id;
 	private String nom;
 	private String prenom;
@@ -9,6 +24,9 @@ public class Client {
 	private String codePostal;
 	private String ville;
 	private String telephone;
+	
+	@OneToMany (mappedBy = "client", cascade= {CascadeType.PERSIST})
+	private List<Compte> comptes = new ArrayList<>();
 
 	public Client() {
 
