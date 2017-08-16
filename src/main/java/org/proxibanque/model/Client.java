@@ -3,6 +3,7 @@ package org.proxibanque.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @ManagedBean
+@ApplicationScoped
 public class Client {
 
 	@Id
@@ -24,6 +26,7 @@ public class Client {
 	private String codePostal;
 	private String ville;
 	private String telephone;
+	private String email;
 	
 	@OneToMany (mappedBy = "client", cascade= {CascadeType.PERSIST})
 	private List<Compte> comptes = new ArrayList<>();
@@ -32,8 +35,8 @@ public class Client {
 
 	}
 
-	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville,
-			String telephone) {
+	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+			String email) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -42,6 +45,21 @@ public class Client {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
+		this.email = email;
+	}
+
+	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+			String email, List<Compte> comptes) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.email = email;
+		this.comptes = comptes;
 	}
 
 	public int getId() {
@@ -98,6 +116,14 @@ public class Client {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
