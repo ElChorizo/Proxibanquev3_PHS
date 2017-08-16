@@ -30,7 +30,7 @@ public class Client {
 
 	private String telephone;
 
-	// @OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
+	 @OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
 	private List<Compte> comptes = new ArrayList<>();
 
 	public Client() {

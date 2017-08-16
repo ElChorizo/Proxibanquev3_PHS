@@ -9,6 +9,7 @@ import javax.inject.Named;
 import org.proxibanque.dao.Dao;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
+import org.proxibanque.model.CompteCourant;
 
 @Named
 public class Service implements IService, Serializable {
@@ -54,4 +55,19 @@ public class Service implements IService, Serializable {
 		return comptes;
 	}
 
+	public void virement(int numCompteDebiter, int numCompteCrediter, double montant) throws Exception {
+		Compte compteDebiter = new Compte();
+		Compte compteCrediter = new Compte();
+		
+		double nouveauSoldeDebiteur = compteDebiter.getSolde() - montant;
+		double nouveauSoldeCrediteur = compteCrediter.getSolde() + montant;
+		
+		if (compteDebiter instanceof CompteCourant && nouveauSoldeDebiteur>=-1000) {
+		dao.updateCompte(compteDebiter);
+		dao.updateCompte(compteCrediter);
+
+		}else {
+			
+		}
+	}
 }

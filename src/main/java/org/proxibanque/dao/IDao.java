@@ -18,6 +18,10 @@ public interface IDao {
 	void deleteClient(int id) throws Exception;
 	
 	List<Compte> getComptes() throws Exception;
+
+	Compte getCompte(int numeroCompte) throws Exception;
+
+	void updateCompte(Compte theCompte) throws Exception;
 }
 
 

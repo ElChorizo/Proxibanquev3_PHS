@@ -172,4 +172,51 @@ public class Dao implements IDao {
 		}
 		return comptes;
 	}
+
+	@Override
+	public Compte getCompte(int numeroCompte) throws Exception {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tnx = em.getTransaction();
+		Compte compte = new Compte();
+		try {
+			tnx.begin();
+			compte = em.find(Compte.class, numeroCompte);
+			
+
+			tnx.commit();
+		} catch (Exception e) {
+			if (tnx != null) {
+				tnx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+
+		return compte;
+	}
+
+	@Override
+	public void updateCompte(Compte theCompte) throws Exception {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tnx = em.getTransaction();
+		try {
+			tnx.begin();
+
+			em.merge(theCompte);
+
+			tnx.commit();
+		} catch (Exception e) {
+			if (tnx != null) {
+				tnx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+	}
 }

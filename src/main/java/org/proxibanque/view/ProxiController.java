@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.RowEditEvent;
@@ -60,5 +61,12 @@ public class ProxiController implements Serializable {
 		FacesMessage msg = new FacesMessage("Edit Cancelled", ((Client) event.getObject()).getNom());
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
+	
+//	public String logOut() {
+//		FacesContext facesContext = FacesContext.getCurrentInstance();
+//		ExternalContext externalContext = facesContext.getExternalContext();
+//		externalContext.invalidateSession();
+//		return "list-students";
+//	}
 
 }

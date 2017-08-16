@@ -4,8 +4,8 @@ package org.proxibanque.model;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-//@Entity
-//@DiscriminatorValue("CompteCourant")
+@Entity
+@DiscriminatorValue("CompteCourant")
 public class CompteCourant extends Compte{
 
 	private double decouvert=-1000;
