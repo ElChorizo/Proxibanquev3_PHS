@@ -8,7 +8,7 @@ import org.proxibanque.model.Compte;
 public interface IService {
 	List<Client> getClients() throws Exception;
 
-	void addClident(Client client) throws Exception;
+	void addClient(Client client) throws Exception;
 
 	Client getClient(int clientId) throws Exception;
 

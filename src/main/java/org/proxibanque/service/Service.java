@@ -25,7 +25,7 @@ public class Service implements IService, Serializable {
 	}
 
 	@Override
-	public void addClident(Client client) throws Exception {
+	public void addClient(Client client) throws Exception {
 		dao.addClient(client);
 
 	}
