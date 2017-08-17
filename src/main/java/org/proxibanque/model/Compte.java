@@ -2,10 +2,9 @@ package org.proxibanque.model;
 
 
 
-import java.awt.SystemColor;
 import java.util.Calendar;
-import java.util.Date;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
@@ -17,10 +16,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @ManagedBean
+@ApplicationScoped
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeCompte")
@@ -33,7 +31,7 @@ public class Compte {
 	private int dateOuverture = Calendar.DATE;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JoinColumn(name = "clientId")
+	@JoinColumn(name = "clientId", referencedColumnName="clientId")
 	private Client client;
 
 	public Compte() {

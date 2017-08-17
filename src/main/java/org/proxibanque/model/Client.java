@@ -14,10 +14,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @ManagedBean
-@Entity
 @ApplicationScoped
+@Entity
 public class Client implements Serializable{
-
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int clientId;
@@ -31,7 +31,7 @@ public class Client implements Serializable{
 
 	private String telephone;
 
-	 @OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
 	private List<Compte> comptes = new ArrayList<>();
 
 	public Client() {
