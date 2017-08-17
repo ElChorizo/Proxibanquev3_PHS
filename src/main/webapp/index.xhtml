@@ -26,26 +26,26 @@
 	<h:form id="listClient">
 		<p:growl id="messages" showDetail="true" />
 
-		<p:dataTable var="client" value="#{proxiController.clients}"
-			reflow="true" rows="5" paginator="true" rowKey="#{client.nom}"
+		<p:dataTable var="tempclient" value="#{proxiController.clients}"
+			reflow="true" rows="5" paginator="true" rowKey="#{tempclient.nom}"
 			selection="#{proxiController.selectedClient}" selectionMode="single">
 
 			<p:column style="width:16px">
 				<p:rowToggler />
 			</p:column>
 
-			<p:column headerText="Prénom" sortBy="#{client.prenom}">
+			<p:column headerText="Prénom" sortBy="#{tempclient.prenom}">
 
-				<h:outputText value="#{client.prenom}" />
+				<h:outputText value="#{tempclient.prenom}" />
 			</p:column>
 
-			<p:column headerText="Nom" sortBy="#{client.nom}">
-				<h:outputText value="#{client.nom}" />
+			<p:column headerText="Nom" sortBy="#{tempclient.nom}">
+				<h:outputText value="#{tempclient.nom}" />
 			</p:column>
 
 			<p:column headerText="Voir comptes">
 
-				<h:commandLink value="Voir comptes" action="proxiController.compte(client.clientId)}" />
+				<h:commandLink value="Voir comptes" action="proxiController.compte(tempclient.clientId)}" />
 
 			</p:column>
 
@@ -53,13 +53,13 @@
 
 
 				<h:commandLink value="Editer"
-					action="#{proxiController.loadClient(client.clientId)}" />
+					action="#{proxiController.loadClient(tempclient.clientId)}" />
 
 			</p:column>
 			<p:column headerText="Supprimer">
 				<h:commandLink value="Supprimer"
 					onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
-					action="#{proxiController.deleteClient(client.clientId)}" />
+					action="#{proxiController.deleteClient(tempclient.clientId)}" />
 			</p:column>
 			<p:rowExpansion>
 				<p:panelGrid columns="2" columnClasses="label,value">
@@ -67,28 +67,28 @@
 					</f:facet>
 
 					<h:outputText value="ID" />
-					<h:outputText value="#{client.clientId}" />
+					<h:outputText value="#{tempclient.clientId}" />
 
 					<h:outputText value="Prénom" />
-					<h:outputText value="#{client.prenom}" />
+					<h:outputText value="#{tempclient.prenom}" />
 
 					<h:outputText value="Nom" />
-					<h:outputText value="#{client.nom}" />
+					<h:outputText value="#{tempclient.nom}" />
 
 					<h:outputText value="Email" />
-					<h:outputText value="#{client.email}" />
+					<h:outputText value="#{tempclient.email}" />
 
 					<h:outputText value="Téléphone" />
-					<h:outputText value="#{client.telephone}" />
+					<h:outputText value="#{tempclient.telephone}" />
 
 					<h:outputText value="Adresse" />
-					<h:outputText value="#{client.adresse}" />
+					<h:outputText value="#{tempclient.adresse}" />
 
 					<h:outputText value="Code Postal" />
-					<h:outputText value="#{client.codePostal}" />
+					<h:outputText value="#{tempclient.codePostal}" />
 
 					<h:outputText value="Ville" />
-					<h:outputText value="#{client.ville}" />
+					<h:outputText value="#{tempclient.ville}" />
 				</p:panelGrid>
 			</p:rowExpansion>
 		</p:dataTable>

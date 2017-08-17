@@ -155,11 +155,11 @@ public class Dao implements IDao {
 			tnx.begin();
 
 			Client client = em.find(Client.class, clientId);
-			Compte compteCourant = em.find(CompteCourant.class, clientId);
-			Compte compteEpargne = em.find(CompteEpargne.class, clientId);
+//			Compte compteCourant = em.find(CompteCourant.class, clientId);
+//			Compte compteEpargne = em.find(CompteEpargne.class, clientId);
 			em.remove(client);
-			em.remove(compteCourant);
-			em.remove(compteEpargne);
+//			em.remove(compteCourant);
+//			em.remove(compteEpargne);
 
 			tnx.commit();
 		} catch (Exception e) {

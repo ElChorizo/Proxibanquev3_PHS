@@ -11,7 +11,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.event.RowEditEvent;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.service.IService;
