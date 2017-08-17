@@ -11,6 +11,14 @@ import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.model.CompteCourant;
 
+/**
+ * 
+ * @author Pierre-Henri, Sébastien
+ * 
+ *         Le service permet de faire le lien entre le DAO et la vue de
+ *         l'application
+ *
+ */
 @Named
 public class Service implements IService, Serializable {
 
@@ -18,6 +26,10 @@ public class Service implements IService, Serializable {
 	@Inject
 	private IDao dao;
 
+	/**
+	 * La méthode getClients() permet de récupérer la liste de tout les clients
+	 * depuis la DAO pour la transmettre à la vue
+	 */
 	@Override
 	public List<Client> getClients() throws Exception {
 
@@ -25,12 +37,20 @@ public class Service implements IService, Serializable {
 		return clients;
 	}
 
+	/**
+	 * La méthode addClients() permet de récupérer les données d'ajout d'un client
+	 * depuis la vue et de les persister grâce à la méthode addClient() du DAO
+	 */
 	@Override
 	public void addClient(Client client) throws Exception {
 		dao.addClient(client);
 
 	}
 
+	/**
+	 * La méthode getClient() permet de récupérer les informations d'un client
+	 * depuis la DAO pour la transmettre à la vue
+	 */
 	@Override
 	public Client getClient(int clientId) throws Exception {
 		Client client = dao.getClient(clientId);
@@ -38,30 +58,51 @@ public class Service implements IService, Serializable {
 
 	}
 
+	/**
+	 * La méthode updateClients() permet de récupérer les données d'édition des
+	 * informations d'un client depuis la vue et de les persister grâce à la méthode
+	 * updateClient() du DAO
+	 */
 	@Override
 	public void updateClient(Client client) throws Exception {
 		dao.updateClient(client);
 
 	}
 
+	/**
+	 * La méthode deleteClients() permet de transmettre l'ordre de supression d'un
+	 * client au DAO
+	 */
 	@Override
 	public void deleteClient(int clientId) throws Exception {
 		dao.deleteClient(clientId);
 
 	}
 
+	/**
+	 * La méthode getComptes() permet de récupérer la liste des comptes d'un client
+	 * depuis le DAO pour les transmettre à la vue
+	 */
 	@Override
-	public List<Compte> getComptes(Client clientId) throws Exception {
+	public List<Compte> getComptes(int clientId) throws Exception {
 		List<Compte> comptes = dao.getCompte(clientId);
 		return comptes;
 	}
-	
+
+	/**
+	 * La méthode getAllComptes() permet de récupérer la liste de tout les comptes
+	 * depuis le DAO pour les transmettre à la vue
+	 */
 	@Override
 	public List<Compte> getAllComptes() throws Exception {
 		List<Compte> comptes = dao.getComptes();
 		return comptes;
 	}
 
+	/**
+	 * La méthode virement() permet de réaliser un transfer d'argent entre deux
+	 * comptes en éditant le solde du compte débiteur et celui du compte créditeur
+	 */
 	public void virement(int numCompteDebiter, int numCompteCrediter, double montant) throws Exception {
 		Compte compteDebiter = new Compte();
 		Compte compteCrediter = new Compte();

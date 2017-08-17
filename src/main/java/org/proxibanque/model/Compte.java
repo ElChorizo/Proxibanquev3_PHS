@@ -1,5 +1,11 @@
 package org.proxibanque.model;
 
+
+
+import java.awt.SystemColor;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
@@ -11,6 +17,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @ManagedBean
 @Entity
@@ -22,7 +30,7 @@ public class Compte {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int numeroCompte;
 	private double solde;
-	private String dateOuverture;
+	private int dateOuverture = Calendar.DATE;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "clientId")
@@ -38,7 +46,7 @@ public class Compte {
 		this.client = client;
 	}
 
-	public Compte(int numeroCompte, double solde, String dateOuverture, Client client) {
+	public Compte(int numeroCompte, double solde, int dateOuverture, Client client) {
 		super();
 		this.numeroCompte = numeroCompte;
 		this.solde = solde;
@@ -46,11 +54,13 @@ public class Compte {
 		this.client = client;
 	}
 
-	public String getDateOuverture() {
+	
+
+	public int getDateOuverture() {
 		return dateOuverture;
 	}
 
-	public void setDateOuverture(String dateOuverture) {
+	public void setDateOuverture(int dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
 

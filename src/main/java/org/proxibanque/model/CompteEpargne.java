@@ -1,6 +1,8 @@
 package org.proxibanque.model;
 
 
+import java.sql.Date;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -20,7 +22,7 @@ public class CompteEpargne extends Compte{
 	
 	
 
-	public CompteEpargne(int numeroCompte, double solde, String dateOuverture, Client client) {
+	public CompteEpargne(int numeroCompte, double solde, int dateOuverture, Client client) {
 		super(numeroCompte, solde, dateOuverture, client);
 	
 	}

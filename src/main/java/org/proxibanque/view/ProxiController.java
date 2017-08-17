@@ -17,6 +17,11 @@ import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.service.IService;
 
+/**
+ * 
+ * @author Pierre-Henri, Sébastien
+ *
+ */
 @Named
 @ManagedBean(name = "proxiController")
 @SessionScoped
@@ -31,10 +36,17 @@ public class ProxiController implements Serializable {
 	@Inject
 	private IService services;
 
+	/**
+	 * La méthode getClients() permet d'afficher la liste des clients
+	 */
 	public List<Client> getClients() {
 		return clients;
 	}
 
+	/**
+	 * La méthode loadClients() permet d'importer les informations de tout les
+	 * clients de la base de données pour pouvoir les afficher
+	 */
 	public void loadClients() {
 
 		try {
@@ -46,6 +58,9 @@ public class ProxiController implements Serializable {
 
 	}
 
+	/**
+	 * La méthode addClients() permet d'ajouter un nouveau client
+	 */
 	public String addClient(Client theClient) {
 
 		try {
@@ -62,6 +77,10 @@ public class ProxiController implements Serializable {
 		return "index?faces-redirect=true";
 	}
 
+	/**
+	 * La méthode loadClient() permet de charger les informations d'un client pour
+	 * pouvoir les éditer
+	 */
 	public String loadClient(int clientId) {
 
 		try {
@@ -82,6 +101,10 @@ public class ProxiController implements Serializable {
 		return "editerClient.xhtml";
 	}
 
+	/**
+	 * La méthode updateClient() permet d'éditer les informations du client et de
+	 * les transmettre au service
+	 */
 	public String updateClient(Client theClient) {
 
 		try {
@@ -98,6 +121,9 @@ public class ProxiController implements Serializable {
 		return "index?faces-redirect=true";
 	}
 
+	/**
+	 * La méthode deleteClient() permet de supprimer le client selectionné
+	 */
 	public String deleteClient(int clientId) {
 
 		try {
@@ -114,29 +140,32 @@ public class ProxiController implements Serializable {
 		return "index";
 	}
 
+	/**
+	 * La méthode addErrorMessage() permet d'envoyer un message d'erreur à
+	 * l'utilisateur lorsqu'une exception est apparue
+	 */
 	private void addErrorMessage(Exception exc) {
 		FacesMessage message = new FacesMessage("Error: " + exc.getMessage());
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
+	/**
+	 * La méthode getSelectedClient() permet de retourner un client spécifique
+	 */
 	public Client getSelectedClient() {
 		return selectedClient;
 	}
 
+	/**
+	 * La méthode setSelectedClient() permet de setter un client spécifique
+	 */
 	public void setSelectedClient(Client selectedClient) {
 		this.selectedClient = selectedClient;
 	}
 
-	public void onRowEdit(RowEditEvent event) {
-		FacesMessage msg = new FacesMessage("Client Edited", ((Client) event.getObject()).getNom());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
-	public void onRowCancel(RowEditEvent event) {
-		FacesMessage msg = new FacesMessage("Edit Cancelled", ((Client) event.getObject()).getNom());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
+	/**
+	 * La méthode logOut() permet d'invalider la session utilisateur
+	 */
 	// public String logOut() {
 	// FacesContext facesContext = FacesContext.getCurrentInstance();
 	// ExternalContext externalContext = facesContext.getExternalContext();
@@ -144,19 +173,32 @@ public class ProxiController implements Serializable {
 	// return "list-students";
 	// }
 
+	/**
+	 * La méthode getComptes permet de récupérer les comptes d'un client
+	 */
 	public List<Compte> getComptes() {
 
 		return comptes;
 	}
 
+	/**
+	 * La méthode getMontant() permet de récupérer le montant d'un virement
+	 */
 	public double getMontant() {
 		return montant;
 	}
 
+	/**
+	 * La méthode setMontant() permet de définir le montant d'un virement
+	 */
 	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 
+	/**
+	 * La méthode virement() permet récupérer les données du virement et de les
+	 * transmettre au service
+	 */
 	public String virement(int numCompteDebiter, int numCompteCrediter, double montant) {
 
 		try {
@@ -169,5 +211,13 @@ public class ProxiController implements Serializable {
 
 		}
 		return null;
+	}
+
+	/**
+	 * La méthode getCompte() permet de récupérer la liste de tout les comptes
+	 */
+	public List<Compte> getCompte(int clientId) {
+
+		return comptes;
 	}
 }

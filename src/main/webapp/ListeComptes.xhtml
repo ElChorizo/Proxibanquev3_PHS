@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Update Student</title>
+	<title>Liste comptes client</title>
 
 	<h:outputStylesheet library="css" name="style.css" />
 	<h:outputStylesheet library="css" name="add-student-style.css" />
@@ -37,23 +37,23 @@
 				<p:rowToggler />
 			</p:column>
 
-			<p:column headerText="Prénom" sortBy="#{client.prenom}">
+			<p:column headerText="NumeroCompte" sortBy="#{compte.numeroCompte}">
 
-				<h:outputText value="#{client.prenom}" />
+				<h:outputText value="#{compte.numeroCompte}" />
 			</p:column>
 
-			<p:column headerText="Nom" sortBy="#{client.nom}">
-				<h:outputText value="#{client.nom}" />
+			<p:column headerText="DateOuverture" sortBy="#{compte.dateOuverture}">
+				<h:outputText value="#{compte.dateOuverture}" />
 			</p:column>
 
+			<p:column headerText="Solde" sortBy="#{compte.solde}">
+				<h:outputText value="#{compte.solde}" />
+			</p:column>
 
 
 
 			<div style="clear: both;"></div>
 
-			<p>
-				<h:outputLink value="index.xhtml">Back to List</h:outputLink>
-			</p>
 		</p:dataTable>
 		<p>
 			<h:outputLink value="index.xhtml">Retour à la liste clients</h:outputLink>
