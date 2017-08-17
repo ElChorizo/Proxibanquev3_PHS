@@ -14,6 +14,8 @@ import org.proxibanque.model.CompteCourant;
 @Named
 public class Service implements IService, Serializable {
 
+	
+	private static final long serialVersionUID = 6243134353021279749L;
 	@Inject
 	private Dao dao;
 
