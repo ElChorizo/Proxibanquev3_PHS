@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Update Student</title>
+	<title>Virement</title>
 
 	<h:outputStylesheet library="css" name="style.css" />
 	<h:outputStylesheet library="css" name="add-student-style.css" />
@@ -31,15 +31,15 @@
 
 
 			<h:outputLabel>Compte à débiter : </h:outputLabel>
-			<h:selectOneMenu value="#{proxiController.comptes}">
+			<h:selectOneMenu value="#{proxiController.compte}">
 
 			</h:selectOneMenu>
 			<br />
 			<br />
 			<br />
 			<h:outputLabel>Compte à créditer : </h:outputLabel>
-			<h:selectOneMenu value="#{proxiController.comptes}">
-
+			<h:selectOneMenu value="#{proxiController.compte}">
+				<f:selectItem itemValue="#{proxiController.compte}" itemLabel="#{proxiController.compte}" />
 			</h:selectOneMenu>
 			<br />
 			<br />

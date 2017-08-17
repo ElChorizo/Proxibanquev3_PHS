@@ -1,5 +1,6 @@
 package org.proxibanque.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import javax.persistence.OneToMany;
 @ManagedBean
 @Entity
 @ApplicationScoped
-public class Client {
+public class Client implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

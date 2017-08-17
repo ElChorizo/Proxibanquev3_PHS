@@ -16,7 +16,7 @@ import org.proxibanque.model.CompteEpargne;
 
 /**
  * 
- * @author Pierre-Henry, Sébastien
+ * @author Pierre-Henri, Sébastien
  * 
  * Le DAO permet de faire le lien avec la base de données.
  *
@@ -210,7 +210,7 @@ public class Dao implements IDao {
 	 * client de la base de données
 	 */
 	@Override
-	public List<Compte> getCompte(Client clientId) throws Exception {
+	public List<Compte> getCompte(int clientId) throws Exception {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 		List<Compte> comptes = new ArrayList<>();
