@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -16,9 +15,10 @@ import org.primefaces.event.RowEditEvent;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.service.IService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Named
-@ManagedBean(name = "proxiController")
 @SessionScoped
 public class ProxiController implements Serializable {
 
@@ -27,6 +27,7 @@ public class ProxiController implements Serializable {
 	private List<Compte> comptes;
 	private Client selectedClient;
 	private double montant;
+	private static Logger LOGGER = LoggerFactory.getLogger(ProxiController.class);
 
 	@Inject
 	private IService services;
@@ -99,7 +100,7 @@ public class ProxiController implements Serializable {
 	}
 
 	public String deleteClient(int clientId) {
-
+		LOGGER.info("delete client engagé");
 		try {
 
 			services.deleteClient(clientId);

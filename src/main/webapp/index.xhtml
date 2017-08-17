@@ -44,10 +44,7 @@
 			</p:column>
 
 			<p:column headerText="Voir comptes">
-
-
 				<h:commandLink value="Voir comptes" action="ListeComptes" />
-
 			</p:column>
 
 			<p:column headerText="Editer">
@@ -66,6 +63,9 @@
 				<p:panelGrid columns="2" columnClasses="label,value">
 					<f:facet name="header">
 					</f:facet>
+
+					<h:outputText value="ID" />
+					<h:outputText value="#{client.clientId}" />
 
 					<h:outputText value="Prénom" />
 					<h:outputText value="#{client.prenom}" />
@@ -90,7 +90,7 @@
 				</p:panelGrid>
 			</p:rowExpansion>
 		</p:dataTable>
-
+		
 	</h:form>
 	<br />
 	<br />
