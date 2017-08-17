@@ -4,8 +4,8 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
-<f:metadata>
+	
+	<f:metadata>
 	<f:event type="preRenderView"
 		listener="#{proxiController.loadClients()}" />
 </f:metadata>
@@ -15,57 +15,18 @@
 	<title>Proxibanque - liste clients</title>
 </h:head>
 <body>
-	<h:button value="Ajouter un client" outcome="add-client-form" />
-	<br />
-	<br />
 	<h:form id="listClient">
 		<p:growl id="messages" showDetail="true" />
-
 		<p:dataTable var="client" value="#{proxiController.clients}"
 			reflow="true" rows="5" paginator="true" rowKey="#{client.nom}"
 			selection="#{proxiController.selectedClient}" selectionMode="single">
-
-			<p:column style="width:16px">
-				<p:rowToggler />
-			</p:column>
-
 			<p:column headerText="Prénom" sortBy="#{client.prenom}">
-
 				<h:outputText value="#{client.prenom}" />
 			</p:column>
 
 			<p:column headerText="Nom" sortBy="#{client.nom}">
 				<h:outputText value="#{client.nom}" />
 			</p:column>
-
-
-			<p:rowExpansion>
-				<p:panelGrid columns="2" columnClasses="label,value">
-					<f:facet name="header">
-					</f:facet>
-
-					<h:outputText value="Prénom" />
-					<h:outputText value="#{client.prenom}" />
-
-					<h:outputText value="Nom" />
-					<h:outputText value="#{client.nom}" />
-
-					<h:outputText value="Email" />
-					<h:outputText value="#{client.email}" />
-
-					<h:outputText value="Téléphone" />
-					<h:outputText value="#{client.telephone}" />
-
-					<h:outputText value="Adresse" />
-					<h:outputText value="#{client.adresse}" />
-
-					<h:outputText value="Code Postal" />
-					<h:outputText value="#{client.codePostal}" />
-
-					<h:outputText value="Ville" />
-					<h:outputText value="#{client.ville}" />
-				</p:panelGrid>
-			</p:rowExpansion>
 
 		</p:dataTable>
 
