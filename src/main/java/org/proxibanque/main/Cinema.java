@@ -5,9 +5,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import org.proxibanque.model.Client;
 
 
-import com.mysql.fabric.xmlrpc.Client;
+
+
 
 public class Cinema {
 	
@@ -23,7 +25,7 @@ public class Cinema {
 		et.begin();
 
 		
-		Client client = new Client("Gilberto");
+		Client client = new Client();
 
 		
 		em.persist(client);

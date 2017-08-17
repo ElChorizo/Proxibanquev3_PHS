@@ -14,7 +14,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Proxibanque - liste clients</title>
 </h:head>
-<body>
+<h:body>
+	<h2>Proxibanque 3</h2>
+	<br />
+	<h3>Liste des clients</h3>
+	<br />
+	<br />
 	<h:button value="Ajouter un client" outcome="ajoutClient" />
 	<br />
 	<br />
@@ -38,7 +43,26 @@
 				<h:outputText value="#{client.nom}" />
 			</p:column>
 
+			<p:column headerText="Voir comptes">
 
+
+				<h:commandLink value="Voir comptes"
+					action="ListeComptes" />
+
+			</p:column>
+
+			<p:column headerText="Editer">
+
+
+				<h:commandLink value="Editer"
+					action="editerClient" />
+
+			</p:column>
+			<p:column headerText="Supprimer">
+				<h:commandLink value="Supprimer"
+					onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
+					action="#{proxiController.deleteClient(clientId)}" />
+			</p:column>
 			<p:rowExpansion>
 				<p:panelGrid columns="2" columnClasses="label,value">
 					<f:facet name="header">
@@ -66,12 +90,11 @@
 					<h:outputText value="#{client.ville}" />
 				</p:panelGrid>
 			</p:rowExpansion>
-
 		</p:dataTable>
 
 	</h:form>
 	<br />
 	<br />
 	<h:button value="Effectuer un virement" outcome="Virement" />
-</body>
+</h:body>
 </html>

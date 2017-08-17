@@ -17,6 +17,13 @@ public class CompteCourant extends Compte{
 	public CompteCourant(double solde, Client theClient) {
 		
 	}
+	
+	
+
+	public CompteCourant(int numeroCompte, double solde, String dateOuverture, Client client) {
+		super(numeroCompte, solde, dateOuverture, client);
+		
+	}
 
 	public double getDecouvert() {
 		return decouvert;

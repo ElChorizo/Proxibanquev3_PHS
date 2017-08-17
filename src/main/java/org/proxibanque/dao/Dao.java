@@ -174,13 +174,15 @@ public class Dao implements IDao {
 	}
 
 	@Override
-	public Compte getCompte(int numeroCompte) throws Exception {
+	public List<Compte> getCompte(Client clientId) throws Exception {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
-		Compte compte = new Compte();
+		List<Compte> comptes = new ArrayList<>();
+		Client client = new Client();
 		try {
 			tnx.begin();
-			compte = em.find(Compte.class, numeroCompte);
+			client = em.find(Client.class, clientId);
+			comptes = client.getComptes();
 			
 
 			tnx.commit();
@@ -195,7 +197,7 @@ public class Dao implements IDao {
 			}
 		}
 
-		return compte;
+		return comptes;
 	}
 
 	@Override

@@ -4,38 +4,32 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
+import javax.inject.Named;
 
 import org.primefaces.event.RowEditEvent;
 import org.proxibanque.model.Client;
+import org.proxibanque.model.Compte;
 import org.proxibanque.service.IService;
 
+@Named
 @ManagedBean(name = "proxiController")
-@ViewScoped
+@SessionScoped
 public class ProxiController implements Serializable {
 
 	private static final long serialVersionUID = 8712592816548989949L;
 	private List<Client> clients;
+	private List<Compte> comptes;
 	private Client selectedClient;
+	private double montant;
 
 	@Inject
 	private IService services;
-
-//	@ManagedProperty("#{clientService}")
-//	private ClientService service;
-
-//	@PostConstruct
-//	public void init() {
-//		clients = service.createClients(10);
-//	}
 
 	public List<Client> getClients() {
 		return clients;
@@ -111,7 +105,7 @@ public class ProxiController implements Serializable {
 			services.deleteClient(clientId);
 
 		} catch (Exception exc) {
-			
+
 			addErrorMessage(exc);
 
 			return null;
@@ -132,15 +126,6 @@ public class ProxiController implements Serializable {
 	public void setSelectedClient(Client selectedClient) {
 		this.selectedClient = selectedClient;
 	}
-//
-//	public void setService(ClientService service) {
-//		this.service = service;
-//	}
-//
-//	public void delete() {
-//		clients.remove(selectedClient);
-//		selectedClient = null;
-//	}
 
 	public void onRowEdit(RowEditEvent event) {
 		FacesMessage msg = new FacesMessage("Client Edited", ((Client) event.getObject()).getNom());
@@ -159,4 +144,30 @@ public class ProxiController implements Serializable {
 	// return "list-students";
 	// }
 
+	public List<Compte> getComptes() {
+
+		return comptes;
+	}
+
+	public double getMontant() {
+		return montant;
+	}
+
+	public void setMontant(double montant) {
+		this.montant = montant;
+	}
+
+	public String virement(int numCompteDebiter, int numCompteCrediter, double montant) {
+
+		try {
+
+			services.virement(numCompteDebiter, numCompteCrediter, montant);
+
+		} catch (Exception exc) {
+
+			addErrorMessage(exc);
+
+		}
+		return null;
+	}
 }

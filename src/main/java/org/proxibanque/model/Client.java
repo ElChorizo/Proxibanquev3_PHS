@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
 @ManagedBean
+@Entity
 @ApplicationScoped
 public class Client {
 
@@ -66,13 +66,6 @@ public class Client {
 
 	}
 
-	public int getclientId() {
-		return clientId;
-	}
-
-	public void setclientId(int clientId) {
-		this.clientId = clientId;
-	}
 
 	public String getNom() {
 		return nom;
@@ -122,11 +115,20 @@ public class Client {
 		this.telephone = telephone;
 	}
 
-	public String getemail() {
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+
+	public String getEmail() {
 		return email;
 	}
 
-	public void setemail(String email) {
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

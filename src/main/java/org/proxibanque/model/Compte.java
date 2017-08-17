@@ -1,5 +1,6 @@
 package org.proxibanque.model;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -11,28 +12,46 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@ManagedBean
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn (name="TypeCompte")
+@DiscriminatorColumn(name = "TypeCompte")
 public class Compte {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int numeroCompte;
 	private double solde;
+	private String dateOuverture;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JoinColumn(name="clientId")
+	@JoinColumn(name = "clientId")
 	private Client client;
-	
+
 	public Compte() {
-		
+
 	}
 
 	public Compte(double solde, Client client) {
 		super();
 		this.solde = solde;
 		this.client = client;
+	}
+
+	public Compte(int numeroCompte, double solde, String dateOuverture, Client client) {
+		super();
+		this.numeroCompte = numeroCompte;
+		this.solde = solde;
+		this.dateOuverture = dateOuverture;
+		this.client = client;
+	}
+
+	public String getDateOuverture() {
+		return dateOuverture;
+	}
+
+	public void setDateOuverture(String dateOuverture) {
+		this.dateOuverture = dateOuverture;
 	}
 
 	public Client getClient() {
@@ -58,6 +77,5 @@ public class Compte {
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
-	
-	
+
 }

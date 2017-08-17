@@ -18,49 +18,49 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>Test University</h2>
+			<h2>Proxibanque 3</h2>
 		</div>
 	</div>
 
 	<div id="container">
-	<h3>Ajouter un client</h3>
+	<h3>Editer les informations personnelles du client</h3>
 
 		<h:messages globalOnly="true" />
 
 		<h:form id="form" style="margin-top: 10px;">
 			<h:panelGrid columns="3">
 
-				<h:outputLabel>Prénom</h:outputLabel>
+				<h:outputLabel>Prénom :</h:outputLabel>
 				<h:inputText value="#{client.prenom}" id="prenom" required="true"
 					requiredMessage="Le prénom edu client doit être renseigné." maxlength="30" />
 				<h:message for="prenom" />
 
-				<h:outputLabel>Nom</h:outputLabel>
+				<h:outputLabel>Nom :</h:outputLabel>
 				<h:inputText value="#{client.nom}" id="nom" required="true"
 					requiredMessage="Le nom du client doit être renseigné." maxlength="30" />
 				<h:message for="nom" />
 
-				<h:outputLabel>Email:</h:outputLabel>
+				<h:outputLabel>Email :</h:outputLabel>
 				<h:inputText value="#{client.email}" id="email" required="true"
 					requiredMessage="L'E-Mail du client doit être renseigné." maxlength="40" />
 				<h:message for="email" />
 
-				<h:outputLabel>Téléphone:</h:outputLabel>
+				<h:outputLabel>Téléphone :</h:outputLabel>
 				<h:inputText value="#{client.telephone}" id="tel" required="true"
 					requiredMessage="Le numéro de téléphone du client doit être renseigné." maxlength="40" />
 				<h:message for="tel" />
 
-				<h:outputLabel>Adresse:</h:outputLabel>
+				<h:outputLabel>Adresse :</h:outputLabel>
 				<h:inputText value="#{client.adresse}" id="adresse" required="true"
 					requiredMessage="L'adresse du client doit être renseignée." maxlength="40" />
 				<h:message for="adresse" />
 
-				<h:outputLabel>Code Postal:</h:outputLabel>
+				<h:outputLabel>Code Postal :</h:outputLabel>
 				<h:inputText value="#{client.codePostal}" id="cp" required="true"
 					requiredMessage="Le code postal du client doit être renseigné." maxlength="40" />
 				<h:message for="cp" />
 
-				<h:outputLabel>Ville:</h:outputLabel>
+				<h:outputLabel>Ville :</h:outputLabel>
 				<h:inputText value="#{client.ville}" id="ville" required="true"
 					requiredMessage="La ville du client doit être renseignée." maxlength="40" />
 				<h:message for="ville" />

@@ -15,7 +15,11 @@ public interface IService {
 	void updateClient(Client client) throws Exception;
 
 	void deleteClient(int clientId) throws Exception;
-	
-	List<Compte> getComptes() throws Exception;
 
+	List<Compte> getComptes(Client clientId) throws Exception;
+
+	List<Compte> getAllComptes() throws Exception;
+
+	void virement(int numCompteDebiter, int numCompteCrediter, double montant) throws Exception;
+	
 }

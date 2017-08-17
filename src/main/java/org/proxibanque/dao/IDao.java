@@ -19,9 +19,9 @@ public interface IDao {
 	
 	List<Compte> getComptes() throws Exception;
 
-	Compte getCompte(int numeroCompte) throws Exception;
-
 	void updateCompte(Compte theCompte) throws Exception;
+
+	List<Compte> getCompte(Client clientId) throws Exception;
 }
 
 

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.proxibanque.dao.Dao;
+import org.proxibanque.dao.IDao;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 import org.proxibanque.model.CompteCourant;
@@ -14,10 +14,9 @@ import org.proxibanque.model.CompteCourant;
 @Named
 public class Service implements IService, Serializable {
 
-	
 	private static final long serialVersionUID = 6243134353021279749L;
 	@Inject
-	private Dao dao;
+	private IDao dao;
 
 	@Override
 	public List<Client> getClients() throws Exception {
@@ -52,7 +51,13 @@ public class Service implements IService, Serializable {
 	}
 
 	@Override
-	public List<Compte> getComptes() throws Exception {
+	public List<Compte> getComptes(Client clientId) throws Exception {
+		List<Compte> comptes = dao.getCompte(clientId);
+		return comptes;
+	}
+	
+	@Override
+	public List<Compte> getAllComptes() throws Exception {
 		List<Compte> comptes = dao.getComptes();
 		return comptes;
 	}
@@ -60,16 +65,17 @@ public class Service implements IService, Serializable {
 	public void virement(int numCompteDebiter, int numCompteCrediter, double montant) throws Exception {
 		Compte compteDebiter = new Compte();
 		Compte compteCrediter = new Compte();
-		
+
 		double nouveauSoldeDebiteur = compteDebiter.getSolde() - montant;
 		double nouveauSoldeCrediteur = compteCrediter.getSolde() + montant;
-		
-		if (compteDebiter instanceof CompteCourant && nouveauSoldeDebiteur>=-1000) {
-		dao.updateCompte(compteDebiter);
-		dao.updateCompte(compteCrediter);
 
-		}else {
-			
+		if (compteDebiter instanceof CompteCourant && nouveauSoldeDebiteur >= -1000) {
+			dao.updateCompte(compteDebiter);
+			dao.updateCompte(compteCrediter);
+
+		} else {
+
 		}
 	}
+
 }
