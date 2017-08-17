@@ -17,10 +17,11 @@
 <h:body>
 	<h2>Proxibanque 3</h2>
 	<br />
-	<h3>Liste des clients</h3>
 	<br />
+	<p:button value="Ajouter un client" outcome="ajoutClient"
+		icon="ui-icon-star" />
 	<br />
-	<h:button value="Ajouter un client" outcome="ajoutClient" />
+	<h:button value="Déconnexion" action="#{proxiController.logOut()}"/>
 	<br />
 	<br />
 	<h:form id="listClient">
@@ -29,6 +30,8 @@
 		<p:dataTable var="tempclient" value="#{proxiController.clients}"
 			reflow="true" rows="5" paginator="true" rowKey="#{tempclient.nom}"
 			selection="#{proxiController.selectedClient}" selectionMode="single">
+
+			<f:facet name="header">Liste des clients</f:facet>
 
 			<p:column style="width:16px">
 				<p:rowToggler />
@@ -45,7 +48,8 @@
 
 			<p:column headerText="Voir comptes">
 
-				<h:commandLink value="Voir comptes" action="proxiController.compte(tempclient.clientId)}" />
+				<h:commandLink value="Voir comptes"
+					action="proxiController.compte(tempclient.clientId)}" />
 
 			</p:column>
 
@@ -92,10 +96,11 @@
 				</p:panelGrid>
 			</p:rowExpansion>
 		</p:dataTable>
-		
+
 	</h:form>
 	<br />
 	<br />
-	<h:button value="Effectuer un virement" outcome="Virement" />
+	<p:button value="Effectuer un virement" outcome="Virement"
+		icon="ui-icon-star" />
 </h:body>
 </html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +10,6 @@
 
 	<title>Edition client</title>
 
-	<h:outputStylesheet library="css" name="style.css" />
-	<h:outputStylesheet library="css" name="add-student-style.css" />
 
 </h:head>
 
@@ -23,58 +22,68 @@
 	</div>
 
 	<div id="container">
-	<h3>Editer les informations personnelles du client</h3>
 
 		<h:messages globalOnly="true" />
 
 		<h:form id="form" style="margin-top: 10px;">
-			<h:panelGrid columns="3">
-
+			<p:panelGrid columns="3" layout="grid">
+				<f:facet name="header">
+					<p:row>
+						<p:column>Editer les informations personnelles du client</p:column>
+					</p:row>
+				</f:facet>
 				<h:outputLabel>Prénom :</h:outputLabel>
-				<h:inputText value="#{client.prenom}" id="prenom" required="true"
-					requiredMessage="Le prénom edu client doit être renseigné." maxlength="30" />
+				<p:inputText value="#{client.prenom}" id="prenom" required="true"
+					requiredMessage="Le prénom edu client doit être renseigné."
+					maxlength="30" />
 				<h:message for="prenom" />
 
 				<h:outputLabel>Nom :</h:outputLabel>
-				<h:inputText value="#{client.nom}" id="nom" required="true"
-					requiredMessage="Le nom du client doit être renseigné." maxlength="30" />
+				<p:inputText value="#{client.nom}" id="nom" required="true"
+					requiredMessage="Le nom du client doit être renseigné."
+					maxlength="30" />
 				<h:message for="nom" />
 
 				<h:outputLabel>Email :</h:outputLabel>
-				<h:inputText value="#{client.email}" id="email" required="true"
-					requiredMessage="L'E-Mail du client doit être renseigné." maxlength="40" />
+				<p:inputText value="#{client.email}" id="email" required="true"
+					requiredMessage="L'E-Mail du client doit être renseigné."
+					maxlength="40" />
 				<h:message for="email" />
 
 				<h:outputLabel>Téléphone :</h:outputLabel>
-				<h:inputText value="#{client.telephone}" id="tel" required="true"
-					requiredMessage="Le numéro de téléphone du client doit être renseigné." maxlength="40" />
+				<p:inputText value="#{client.telephone}" id="tel" required="true"
+					requiredMessage="Le numéro de téléphone du client doit être renseigné."
+					maxlength="40" />
 				<h:message for="tel" />
 
 				<h:outputLabel>Adresse :</h:outputLabel>
-				<h:inputText value="#{client.adresse}" id="adresse" required="true"
-					requiredMessage="L'adresse du client doit être renseignée." maxlength="40" />
+				<p:inputText value="#{client.adresse}" id="adresse" required="true"
+					requiredMessage="L'adresse du client doit être renseignée."
+					maxlength="40" />
 				<h:message for="adresse" />
 
 				<h:outputLabel>Code Postal :</h:outputLabel>
-				<h:inputText value="#{client.codePostal}" id="cp" required="true"
-					requiredMessage="Le code postal du client doit être renseigné." maxlength="40" />
+				<p:inputText value="#{client.codePostal}" id="cp" required="true"
+					requiredMessage="Le code postal du client doit être renseigné."
+					maxlength="40" />
 				<h:message for="cp" />
 
 				<h:outputLabel>Ville :</h:outputLabel>
-				<h:inputText value="#{client.ville}" id="ville" required="true"
-					requiredMessage="La ville du client doit être renseignée." maxlength="40" />
+				<p:inputText value="#{client.ville}" id="ville" required="true"
+					requiredMessage="La ville du client doit être renseignée."
+					maxlength="40" />
 				<h:message for="ville" />
 
-				<h:commandButton value="Save" styleClass="save"
+				<p:commandButton value="Valider" ajax="false" icon="ui-icon-disk"
 					action="#{proxiController.updateClient(client)}" />
 
-			</h:panelGrid>
+			</p:panelGrid>
 		</h:form>
 
 		<div style="clear: both;"></div>
 
 		<p>
-			<h:outputLink value="index.xhtml">Retour à la liste clients</h:outputLink>
+			<p:link outcome="index.xhtml" value="Retour à la liste clients"></p:link>
 		</p>
 
 	</div>
