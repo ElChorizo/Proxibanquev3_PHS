@@ -5,6 +5,11 @@ import java.util.List;
 import org.proxibanque.model.Client;
 import org.proxibanque.model.Compte;
 
+/**
+ * 
+ * @author Pierre-Henri, Sébastien
+ * 
+ */
 public interface IDao {
 	
 	List<Client> getClients() throws Exception;

@@ -15,6 +15,9 @@ public class Cinema {
 	
 	public static void main(String[] args) {
 		
+//		Client client1 = new Client(1, "BOB", "totot", "1rue", "7400", "paris", "060000", "bob@gmail.com");
+		
+		
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 	EntityManager em = emf.createEntityManager();
 	EntityTransaction et = em.getTransaction();

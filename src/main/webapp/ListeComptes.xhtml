@@ -28,8 +28,9 @@
 
 		<h:messages globalOnly="true" />
 
-	<p:dataTable var="compte" value="#{proxiController.comptes}"
-			reflow="true" rows="4" paginator="true" rowKey="#{compte.numeroCompte}"
+		<p:dataTable var="compte" value="#{proxiController.comptes}"
+			reflow="true" rows="4" paginator="true"
+			rowKey="#{compte.numeroCompte}"
 			selection="#{proxiController.comptes}" selectionMode="single">
 
 			<p:column style="width:16px">
@@ -44,16 +45,19 @@
 			<p:column headerText="Nom" sortBy="#{client.nom}">
 				<h:outputText value="#{client.nom}" />
 			</p:column>
-	
 
 
 
-		<div style="clear: both;"></div>
 
+			<div style="clear: both;"></div>
+
+			<p>
+				<h:outputLink value="index.xhtml">Back to List</h:outputLink>
+			</p>
+		</p:dataTable>
 		<p>
-			<h:outputLink value="index.xhtml">Back to List</h:outputLink>
+			<h:outputLink value="index.xhtml">Retour à la liste clients</h:outputLink>
 		</p>
-
 	</div>
 </h:body>
 </html>

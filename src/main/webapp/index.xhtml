@@ -5,10 +5,10 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<!-- <f:metadata> -->
-<!-- 	<f:event type="preRenderView" -->
-<!-- 		listener="#{proxiController.loadClients()}" /> -->
-<!-- </f:metadata> -->
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{proxiController.loadClients()}" />
+</f:metadata>
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -46,8 +46,7 @@
 			<p:column headerText="Voir comptes">
 
 
-				<h:commandLink value="Voir comptes"
-					action="ListeComptes" />
+				<h:commandLink value="Voir comptes" action="ListeComptes" />
 
 			</p:column>
 
@@ -55,13 +54,13 @@
 
 
 				<h:commandLink value="Editer"
-					action="editerClient" />
+					action="#{proxiController.loadClient(client.clientId)}" />
 
 			</p:column>
 			<p:column headerText="Supprimer">
 				<h:commandLink value="Supprimer"
 					onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
-					action="#{proxiController.deleteClient(clientId)}" />
+					action="#{proxiController.deleteClient(client.clientId)}" />
 			</p:column>
 			<p:rowExpansion>
 				<p:panelGrid columns="2" columnClasses="label,value">

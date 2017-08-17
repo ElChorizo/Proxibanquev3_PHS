@@ -79,7 +79,7 @@ public class ProxiController implements Serializable {
 			return null;
 		}
 
-		return "update-client.xhtml";
+		return "editerClient.xhtml";
 	}
 
 	public String updateClient(Client theClient) {
