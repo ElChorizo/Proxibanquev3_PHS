@@ -52,7 +52,7 @@ public class ProxiController implements Serializable {
 
 	}
 
-	public String addcLIent(Client theClient) {
+	public String addClient(Client theClient) {
 
 		try {
 
