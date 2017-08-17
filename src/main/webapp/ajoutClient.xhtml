@@ -32,38 +32,38 @@
 			<h:panelGrid columns="3">
 
 				<h:outputLabel>Prénom</h:outputLabel>
-				<h:inputText value="#{client.prenom}" id="firstName" required="true"
-					requiredMessage="Your first name is mandatory." maxlength="30" />
-				<h:message for="firstName" />
+				<h:inputText value="#{client.prenom}" id="prenom" required="true"
+					requiredMessage="Le prénom du client doit être renseigné." maxlength="30" />
+				<h:message for="prenom" />
 
 				<h:outputLabel>Nom</h:outputLabel>
-				<h:inputText value="#{client.nom}" id="lastName" required="true"
-					requiredMessage="Your last name is mandatory." maxlength="30" />
-				<h:message for="lastName" />
+				<h:inputText value="#{client.nom}" id="nom" required="true"
+					requiredMessage="Le nom du client doit être renseigné." maxlength="30" />
+				<h:message for="nom" />
 
 				<h:outputLabel>Email:</h:outputLabel>
 				<h:inputText value="#{client.email}" id="email" required="true"
-					requiredMessage="Your email is mandatory." maxlength="40" />
+					requiredMessage="L'E-Mail du client doit être renseigné." maxlength="40" />
 				<h:message for="email" />
 
 				<h:outputLabel>Téléphone:</h:outputLabel>
 				<h:inputText value="#{client.telephone}" id="tel" required="true"
-					requiredMessage="Your email is mandatory." maxlength="40" />
+					requiredMessage="Le numéro de téléphone du client doit être renseigné." maxlength="40" />
 				<h:message for="tel" />
 
 				<h:outputLabel>Adresse:</h:outputLabel>
 				<h:inputText value="#{client.adresse}" id="adresse" required="true"
-					requiredMessage="Your email is mandatory." maxlength="40" />
+					requiredMessage="L'adresse du client doit être renseignée." maxlength="40" />
 				<h:message for="adresse" />
 
 				<h:outputLabel>Code Postal:</h:outputLabel>
 				<h:inputText value="#{client.codePostal}" id="cp" required="true"
-					requiredMessage="Your email is mandatory." maxlength="40" />
+					requiredMessage="Le code postal du client doit être renseigné." maxlength="40" />
 				<h:message for="cp" />
 
 				<h:outputLabel>Ville:</h:outputLabel>
 				<h:inputText value="#{client.ville}" id="ville" required="true"
-					requiredMessage="Your email is mandatory." maxlength="40" />
+					requiredMessage="La ville du client doit être renseignée." maxlength="40" />
 				<h:message for="ville" />
 
 				<h:outputLabel />

@@ -5,17 +5,17 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<f:metadata>
-	<f:event type="preRenderView"
-		listener="#{proxiController.loadClients()}" />
-</f:metadata>
+<!-- <f:metadata> -->
+<!-- 	<f:event type="preRenderView" -->
+<!-- 		listener="#{proxiController.loadClients()}" /> -->
+<!-- </f:metadata> -->
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Proxibanque - liste clients</title>
 </h:head>
 <body>
-	<h:button value="Ajouter un client" outcome="add-client-form" />
+	<h:button value="Ajouter un client" outcome="ajoutClient" />
 	<br />
 	<br />
 	<h:form id="listClient">
@@ -70,5 +70,8 @@
 		</p:dataTable>
 
 	</h:form>
+	<br />
+	<br />
+	<h:button value="Effectuer un virement" outcome="Virement" />
 </body>
 </html>

@@ -23,7 +23,7 @@ public class Cinema {
 		et.begin();
 
 		
-		Client client = new Client(null);
+		Client client = new Client("Gilberto");
 
 		
 		em.persist(client);
