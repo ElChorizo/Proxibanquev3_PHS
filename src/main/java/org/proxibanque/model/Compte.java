@@ -18,10 +18,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @ManagedBean
-@ApplicationScoped
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TypeCompte")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte {
 
 	@Id

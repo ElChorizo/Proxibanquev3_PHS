@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 @ManagedBean
 @ApplicationScoped
 @Entity
-@DiscriminatorValue("CompteCourant")
 public class CompteCourant extends Compte{
 
 	private double decouvert=-1000;

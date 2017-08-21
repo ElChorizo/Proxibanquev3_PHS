@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 @ManagedBean
 @ApplicationScoped
 @Entity
-@DiscriminatorValue("CompteEpargne")
 public class CompteEpargne extends Compte{
 
 	private double tauxRemuneration = 1.03;

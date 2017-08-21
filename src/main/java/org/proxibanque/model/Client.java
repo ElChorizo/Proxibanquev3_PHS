@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @ManagedBean
-@ApplicationScoped
 @Entity
 public class Client implements Serializable{
 	private static final long serialVersionUID = 1L;
