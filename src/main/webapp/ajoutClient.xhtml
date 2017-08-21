@@ -37,19 +37,27 @@
 				<h:outputLabel>Prénom :</h:outputLabel>
 				<p:inputText value="#{client.prenom}" id="prenom" required="true"
 					requiredMessage="Le prénom du client doit être renseigné."
-					maxlength="30" />
+					maxlength="30">
+					<f:validateRegex pattern="^([_a-zA-Z]"/>
+					<f:validateLength minimum="2"/>
+					</p:inputText>
 				<h:message for="prenom" />
 
 				<h:outputLabel>Nom :</h:outputLabel>
 				<p:inputText value="#{client.nom}" id="nom" required="true"
 					requiredMessage="Le nom du client doit être renseigné."
-					maxlength="30" />
+					maxlength="30">
+						<f:validateLength minimum="2"/>
+					</p:inputText>
 				<h:message for="nom" />
 
 				<h:outputLabel>Email :</h:outputLabel>
 				<p:inputText value="#{client.email}" id="email" required="true"
 					requiredMessage="L'E-Mail du client doit être renseigné."
-					maxlength="40" />
+					maxlength="40" >
+						
+						<f:validateRegex pattern="^([_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{1,6}))?$"/>
+					</p:inputText>
 				<h:message for="email" />
 
 				<h:outputLabel>Téléphone :</h:outputLabel>
