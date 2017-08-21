@@ -23,7 +23,7 @@
 	
 	<h:form id="listClient">
 	<br />
-	<h:commandButton value="Déconnexion" action="#{proxiController.logOut()}"></h:commandButton>
+	<p:commandButton value="Déconnexion" action="#{proxiController.logOut()}" ajax="{false}"></p:commandButton>
 	<br />
 	<br />
 		<p:growl id="messages" showDetail="true" />
