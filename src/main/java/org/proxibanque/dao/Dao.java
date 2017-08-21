@@ -3,6 +3,8 @@ package org.proxibanque.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -21,6 +23,8 @@ import org.proxibanque.model.CompteEpargne;
  * Le DAO permet de faire le lien avec la base de données.
  *
  */
+@Named
+@ApplicationScoped
 public class Dao implements IDao {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");

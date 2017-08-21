@@ -34,13 +34,14 @@
 				</f:facet>
 				<h:outputLabel>Prénom :</h:outputLabel>
 				<p:inputText value="#{client.prenom}" id="prenom" required="true"
-					requiredMessage="Le prénom edu client doit être renseigné."
+					requiredMessage="Le prénom du client doit être renseigné."
 					maxlength="30"
 					validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
 					<f:validateRegex pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
 					<f:validateLength minimum="2" />
-					<h:message for="prenom" />
 				</p:inputText>
+					<h:message for="prenom" />
+					
 				<h:outputLabel>Nom :</h:outputLabel>
 				<p:inputText value="#{client.nom}" id="nom" required="true"
 					requiredMessage="Le nom du client doit être renseigné."

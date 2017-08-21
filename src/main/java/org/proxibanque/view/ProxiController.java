@@ -167,19 +167,12 @@ public class ProxiController implements Serializable {
 	/**
 	 * La méthode logOut() permet d'invalider la session utilisateur
 	 */
-	 public String logOut() {
-	 FacesContext facesContext = FacesContext.getCurrentInstance();
-	 ExternalContext externalContext = facesContext.getExternalContext();
-	 externalContext.invalidateSession();
-	 externalContext.setResponseStatus(401);
-	 try {
-		 externalContext.getResponseOutputWriter().write("<html><head><meta http-equiv='refresh' content='0;URL=faces/index.xhtml'></head></html>");
-	 } catch (IOException e) {
-		 e.printStackTrace();
-	 }
-	 facesContext.responseComplete();
-	 return "/WEB-INF/login.html";
-	 }
+	public String logOut() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		externalContext.invalidateSession();
+		return "index";
+	}
 
 	/**
 	 * La méthode getComptes permet de récupérer les comptes d'un client

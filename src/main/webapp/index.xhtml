@@ -20,11 +20,12 @@
 	<br />
 	<p:button value="Ajouter un client" outcome="ajoutClient"
 		icon="ui-icon-star" />
-	<br />
-	<h:button value="Déconnexion" action="#{proxiController.logOut()}"/>
-	<br />
-	<br />
+	
 	<h:form id="listClient">
+	<br />
+	<h:commandButton value="Déconnexion" action="#{proxiController.logOut()}"></h:commandButton>
+	<br />
+	<br />
 		<p:growl id="messages" showDetail="true" />
 
 		<p:dataTable var="tempclient" value="#{proxiController.clients}"
@@ -95,9 +96,6 @@
 		</p:dataTable>
 
 	</h:form>
-	<br />
-	<br />
-	<p:button value="Effectuer un virement" outcome="Virement"
-		icon="ui-icon-star" />
+	
 </h:body>
 </html>
