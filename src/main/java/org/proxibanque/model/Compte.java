@@ -4,10 +4,8 @@ package org.proxibanque.model;
 
 import java.util.Calendar;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +21,7 @@ import javax.persistence.ManyToOne;
 public class Compte {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int numeroCompte;
 	private double solde;
 	private int dateOuverture = Calendar.DATE;

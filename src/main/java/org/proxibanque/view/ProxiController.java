@@ -178,7 +178,7 @@ public class ProxiController implements Serializable {
 		 e.printStackTrace();
 	 }
 	 facesContext.responseComplete();
-	 return "login";
+	 return "/WEB-INF/login.html";
 	 }
 
 	/**

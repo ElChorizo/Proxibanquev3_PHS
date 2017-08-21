@@ -1,13 +1,10 @@
 package org.proxibanque.model;
 
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @ManagedBean
-@ApplicationScoped
 @Entity
 public class CompteCourant extends Compte{
 

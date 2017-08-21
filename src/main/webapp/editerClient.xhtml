@@ -35,25 +35,37 @@
 				<h:outputLabel>Prénom :</h:outputLabel>
 				<p:inputText value="#{client.prenom}" id="prenom" required="true"
 					requiredMessage="Le prénom edu client doit être renseigné."
-					maxlength="30" />
-				<h:message for="prenom" />
-
+					maxlength="30"
+					validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+					<f:validateRegex pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
+					<f:validateLength minimum="2" />
+					<h:message for="prenom" />
+				</p:inputText>
 				<h:outputLabel>Nom :</h:outputLabel>
 				<p:inputText value="#{client.nom}" id="nom" required="true"
 					requiredMessage="Le nom du client doit être renseigné."
-					maxlength="30" />
+					maxlength="30" validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+					<f:validateRegex pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
+					<f:validateLength minimum="2" />
+				</p:inputText>
 				<h:message for="nom" />
 
 				<h:outputLabel>Email :</h:outputLabel>
 				<p:inputText value="#{client.email}" id="email" required="true"
 					requiredMessage="L'E-Mail du client doit être renseigné."
-					maxlength="40" />
+					maxlength="40" validatorMessage="Entrer un format d'adresse e-mail valide (ex: client@proxibanque.fr)">
+
+					<f:validateRegex
+						pattern="^([_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{1,6}))?$" />
+				</p:inputText>
 				<h:message for="email" />
 
 				<h:outputLabel>Téléphone :</h:outputLabel>
 				<p:inputText value="#{client.telephone}" id="tel" required="true"
 					requiredMessage="Le numéro de téléphone du client doit être renseigné."
-					maxlength="40" />
+					maxlength="10" validatorMessage="Seuls les chiffres sont autorisés.">
+					<f:validateRegex pattern="^[_0-9]+$" />
+					</p:inputText>
 				<h:message for="tel" />
 
 				<h:outputLabel>Adresse :</h:outputLabel>
@@ -65,7 +77,9 @@
 				<h:outputLabel>Code Postal :</h:outputLabel>
 				<p:inputText value="#{client.codePostal}" id="cp" required="true"
 					requiredMessage="Le code postal du client doit être renseigné."
-					maxlength="40" />
+					maxlength="6" validatorMessage="Seuls les chiffres sont autorisés.">
+					<f:validateRegex pattern="^[_0-9]+$" />
+					</p:inputText>
 				<h:message for="cp" />
 
 				<h:outputLabel>Ville :</h:outputLabel>

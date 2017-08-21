@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -34,28 +34,28 @@
 						<p:column>Ajouter un client</p:column>
 					</p:row>
 				</f:facet>
-				<h:outputLabel>Pr�nom :</h:outputLabel>
+				<h:outputLabel>Prénom :</h:outputLabel>
 				<p:inputText value="#{client.prenom}" id="prenom" required="true"
-					requiredMessage="Le pr�nom du client doit �tre renseign�."
+					requiredMessage="Le prénom du client doit être renseigné."
 					maxlength="30"
-					validatorMessage="Seules les lettres (aA-zZ) sont autoris�es.">
-					<f:validateRegex pattern="^[a-zA-Z]+$" />
+					validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+					<f:validateRegex pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
 					<f:validateLength minimum="2" />
 				</p:inputText>
 				<h:message for="prenom" />
 
 				<h:outputLabel>Nom :</h:outputLabel>
 				<p:inputText value="#{client.nom}" id="nom" required="true"
-					requiredMessage="Le nom du client doit �tre renseign�."
-					maxlength="30" validatorMessage="Seules les lettres (aA-zZ) sont autoris�es.">
-					<f:validateRegex pattern="^[a-zA-Z]+$" />
+					requiredMessage="Le nom du client doit être renseigné."
+					maxlength="30" validatorMessage="Seules les lettres (aA-zZ) sont autorisées.">
+					<f:validateRegex pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]+$" />
 					<f:validateLength minimum="2" />
 				</p:inputText>
 				<h:message for="nom" />
 
 				<h:outputLabel>Email :</h:outputLabel>
 				<p:inputText value="#{client.email}" id="email" required="true"
-					requiredMessage="L'E-Mail du client doit �tre renseign�."
+					requiredMessage="L'E-Mail du client doit être renseigné."
 					maxlength="40" validatorMessage="Entrer un format d'adresse e-mail valide (ex: client@proxibanque.fr)">
 
 					<f:validateRegex
@@ -63,29 +63,29 @@
 				</p:inputText>
 				<h:message for="email" />
 
-				<h:outputLabel>T�l�phone :</h:outputLabel>
+				<h:outputLabel>Téléphone :</h:outputLabel>
 				<p:inputText value="#{client.telephone}" id="tel" required="true"
-					requiredMessage="Le num�ro de t�l�phone du client doit �tre renseign�."
-					maxlength="40" validatorMessage="Seuls les chiffres sont autoris�s.">
+					requiredMessage="Le numéro de téléphone du client doit être renseigné."
+					maxlength="10" validatorMessage="Seuls les chiffres sont autorisés.">
 					<f:validateRegex pattern="^[_0-9]+$" />
 					</p:inputText>
 				<h:message for="tel" />
 
 				<h:outputLabel>Adresse :</h:outputLabel>
 				<p:inputText value="#{client.adresse}" id="adresse" required="true"
-					requiredMessage="L'adresse du client doit �tre renseign�e."
+					requiredMessage="L'adresse du client doit être renseignée."
 					maxlength="40" />
 				<h:message for="adresse" />
 
 				<h:outputLabel>Code Postal :</h:outputLabel>
 				<p:inputText value="#{client.codePostal}" id="cp" required="true"
-					requiredMessage="Le code postal du client doit �tre renseign�."
+					requiredMessage="Le code postal du client doit être renseigné."
 					maxlength="40" />
 				<h:message for="cp" />
 
 				<h:outputLabel>Ville :</h:outputLabel>
 				<p:inputText value="#{client.ville}" id="ville" required="true"
-					requiredMessage="La ville du client doit �tre renseign�e."
+					requiredMessage="La ville du client doit être renseignée."
 					maxlength="40" />
 				<h:message for="ville" />
 
@@ -99,7 +99,7 @@
 		<div style="clear: both;"></div>
 
 		<p>
-			<p:link outcome="index.xhtml" value="Retour � la liste clients"></p:link>
+			<p:link outcome="index.xhtml" value="Retour à la liste clients"></p:link>
 		</p>
 
 	</div>
