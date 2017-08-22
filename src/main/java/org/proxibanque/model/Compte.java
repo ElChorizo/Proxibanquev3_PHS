@@ -4,7 +4,6 @@ package org.proxibanque.model;
 
 import java.util.Calendar;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

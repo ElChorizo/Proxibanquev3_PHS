@@ -18,14 +18,18 @@
 	<h2>Proxibanque 3</h2>
 	<br />
 	<br />
-	<p:button value="Ajouter un client" outcome="ajoutClient"
-		icon="ui-icon-star" />
-	
+	<h:form>
+		<p:commandButton value="Ajouter un client" action="ajoutClient"
+			ajax="false" icon="ui-icon-star" />
+	</h:form>
+
 	<h:form id="listClient">
-	<br />
-	<p:commandButton value="Déconnexion" action="#{proxiController.logOut()}" ajax="{false}" icon="ui-icon-close"></p:commandButton>
-	<br />
-	<br />
+		<br />
+		<p:commandButton value="Déconnexion"
+			action="#{proxiController.logOut()}" ajax="false"
+			icon="ui-icon-circle-close"></p:commandButton>
+		<br />
+		<br />
 		<p:growl id="messages" showDetail="true" />
 
 		<p:dataTable var="tempclient" value="#{proxiController.clients}"
@@ -56,7 +60,6 @@
 
 			<p:column headerText="Editer">
 
-
 				<h:commandLink value="Editer"
 					action="#{proxiController.loadClient(tempclient.clientId)}" />
 
@@ -66,36 +69,41 @@
 					onclick="if (!confirm('Etes vous sûr de vouloir supprimer ce client ?')) return false"
 					action="#{proxiController.deleteClient(tempclient.clientId)}" />
 			</p:column>
+			
 			<p:rowExpansion>
 				<p:panelGrid columns="2" columnClasses="label,value">
-					<f:facet name="header">
+					<f:facet name="header">Editer
 					</f:facet>
 
 					<h:outputText value="Prénom" />
-					<h:outputText value="#{tempclient.prenom}" />
+					<h:inputText value="#{tempclient.prenom}" />
 
 					<h:outputText value="Nom" />
-					<h:outputText value="#{tempclient.nom}" />
+					<h:inputText value="#{tempclient.nom}" />
 
 					<h:outputText value="Email" />
-					<h:outputText value="#{tempclient.email}" />
+					<h:inputText value="#{tempclient.email}" />
 
 					<h:outputText value="Téléphone" />
-					<h:outputText value="#{tempclient.telephone}" />
+					<h:inputText value="#{tempclient.telephone}" />
 
 					<h:outputText value="Adresse" />
-					<h:outputText value="#{tempclient.adresse}" />
+					<h:inputText value="#{tempclient.adresse}" />
 
 					<h:outputText value="Code Postal" />
-					<h:outputText value="#{tempclient.codePostal}" />
+					<h:inputText value="#{tempclient.codePostal}" />
 
 					<h:outputText value="Ville" />
-					<h:outputText value="#{tempclient.ville}" />
+					<h:inputText value="#{tempclient.ville}" />
+					
+					<p:commandButton value="Valider" ajax="false" icon="ui-icon-disk"
+					onclick="if (!confirm('Etes vous sûr de vouloir mettre à jour ce client ?')) return false"
+					action="#{proxiController.updateClient(tempclient)}"/>
 				</p:panelGrid>
 			</p:rowExpansion>
 		</p:dataTable>
 
 	</h:form>
-	
+
 </h:body>
 </html>

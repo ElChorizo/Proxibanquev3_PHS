@@ -1,6 +1,5 @@
 package org.proxibanque.view;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
